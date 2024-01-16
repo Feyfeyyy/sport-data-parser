@@ -52,9 +52,12 @@ for res in response["fixtures"]["fixtures"]:
     for x in res["games"]:
         final_json = construct_json(res, x["results"])
 
-        cursor.execute('''
+        cursor.execute(
+            """
             SELECT * FROM tennis_data WHERE event_name=?
-        ''', (final_json["events"][0]["event_name"],))
+        """,
+            (final_json["events"][0]["event_name"],),
+        )
 
         existing_record = cursor.fetchone()
 
