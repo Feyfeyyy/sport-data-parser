@@ -10,8 +10,9 @@ This is a simple python script to parse data from the [Sport Data API](https://s
 ## How to use
 
 1. Clone the repository
+2. Choose whether you want method you like to execute the scripts.
 2. Run the ```pull_data_via_csv.py``` file or the ```pull_data_via_database.py``` file
-3. Enjoy!
+4. Enjoy!
 
 ## Additional Information
 
@@ -30,5 +31,9 @@ Before you begin, ensure you have met the following requirements:
 ## Dependency Management
 
 This project uses [Poetry](https://python-poetry.org/) for dependency management.
+
+## Formatting
+
+This project uses Black & isort for formatting.
 
 ---
