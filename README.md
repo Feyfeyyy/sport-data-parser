@@ -11,7 +11,7 @@ This is a simple python script to parse data from the [Sport Data API](https://s
 
 1. Clone the repository
 2. Choose whether you want method you like to execute the scripts.
-2. Run the ```pull_data_via_csv.py``` file or the ```pull_data_via_database.py``` file
+3. Run the ```pull_data_via_csv.py``` file or the ```pull_data_via_database.py``` file
 4. Enjoy!
 
 ## Additional Information
