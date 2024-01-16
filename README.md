@@ -10,9 +10,10 @@ This is a simple python script to parse data from the [Sport Data API](https://s
 ## How to use
 
 1. Clone the repository
-2. Choose whether you want method you like to execute the scripts.
-3. Run the ```pull_data_via_csv.py``` file or the ```pull_data_via_database.py``` file
-4. Enjoy!
+2. Choose which method you like to execute the scripts.
+3. Go into the methods' folder.
+4. Run the ```pull_data_via_csv.py``` file or the ```pull_data_via_database.py``` file
+5. Enjoy!
 
 ## Additional Information
 
