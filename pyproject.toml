@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "Sports-Scraper"
+version = "0.1.0"
+description = "A scraper for sports data"
+authors = ["Feyaaz <feyaazc94@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beautifulsoup4 = "^4.12.2"
+requests = "^2.31.0"
+lxml = "^5.1.0"
+loguru = "^0.7.2"
+black = "^23.12.1"
+isort = "^5.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
