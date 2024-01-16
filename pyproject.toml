@@ -6,7 +6,7 @@ authors = ["Feyaaz <feyaazc94@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 beautifulsoup4 = "^4.12.2"
 requests = "^2.31.0"
 lxml = "^5.1.0"
