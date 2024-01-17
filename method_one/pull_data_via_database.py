@@ -33,6 +33,7 @@ cursor.execute(
 )
 conn.commit()
 
+i = 0
 for res in response["fixtures"]["fixtures"]:
     for x in res["games"]:
         final_json = construct_json(res, x["results"])
@@ -48,6 +49,7 @@ for res in response["fixtures"]["fixtures"]:
 
         if existing_record:
             # Update the existing record
+            i += 1
             cursor.execute(
                 """
                 UPDATE tennis_data
@@ -67,6 +69,7 @@ for res in response["fixtures"]["fixtures"]:
             )
         else:
             # Insert a new record
+            i += 1
             cursor.execute(
                 """
                 INSERT INTO tennis_data (tournament_name, last_updated, event_name, start_time, outcome_name1, odds1, outcome_name2, odds2)
@@ -83,9 +86,11 @@ for res in response["fixtures"]["fixtures"]:
                     final_json["events"][0]["outcomes"][1]["odds"],
                 ),
             )
-            loguru.logger.info("Amount of new records inserted: %s", len(final_json))
-
         conn.commit()
+    if i > 0:
+        loguru.logger.info(f"Amount of new records inserted/ updated: {i}")
+    else:
+        loguru.logger.info("No new records inserted")
 
 # Close the database connection
 conn.close()
