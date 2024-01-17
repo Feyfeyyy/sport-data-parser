@@ -6,18 +6,33 @@ import requests
 from requests import HTTPError, Response
 
 
-def make_data_request(url: str, headers: Dict, data: Dict) -> Response:
+def make_data_request(url: str, headers: Dict) -> Response:
     """
     Make a request to the given URL with the given headers and data.
 
     :param url: URL to make the request to
     :param headers: Headers to use for the request
-    :param data: Data to send with the request
     :raises SystemExit: If the request was not successful
     :return: Response object
     """
 
     try:
+        data = {
+            "fixtureCountsRequest": {
+                "state": "Live",
+                "tagTypes": "Sport,Region,Tournament,Competition",
+                "extendedTags": "Sport,Region,Tournament,Competition",
+                "sortBy": "Tags",
+            },
+            "fixtureRequest": {
+                "fixtureTypes": "Standard",
+                "state": "Live",
+                "offerMapping": "MainMarkets",
+                "sortBy": "FixtureStage",
+                "excludeCompetitionIds": "",
+            },
+        }
+
         result = requests.post(url, headers=headers, json=data)
         result.raise_for_status()
         return result
