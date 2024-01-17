@@ -2,11 +2,12 @@ import json
 
 import loguru
 import requests
-from helpers import construct_json, make_data_request
 from requests import HTTPError, Response
 from selenium.webdriver.chrome.service import Service
 from seleniumwire import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+
+from helpers.utility import construct_json, make_data_request
 
 MAIN_URL = "https://sports.bwin.com/"
 
@@ -53,12 +54,12 @@ if result:
         # Construct the URL to make the request to using the values above
         api_url = f"{cds_url_base}/bettingoffer/counts-fixtures?x-bwin-accessid={public_access_id}&lang=en&country=GB&userCountry=GB"
 
-response = make_data_request(api_url, HEADERS)
-response = response.json()
+    response = make_data_request(api_url, HEADERS)
+    response = response.json()
 
-for res in response["fixtures"]["fixtures"]:
-    for x in res["games"]:
-        final_json = construct_json(res, x["results"])
-        load_to_csv = json.dumps(final_json)
-        with open("output.json", "a") as f:
-            f.write(load_to_csv + "\n")
+    for res in response["fixtures"]["fixtures"]:
+        for x in res["games"]:
+            final_json = construct_json(res, x["results"])
+            load_to_csv = json.dumps(final_json)
+            with open("output.json", "a") as f:
+                f.write(load_to_csv + "\n")
