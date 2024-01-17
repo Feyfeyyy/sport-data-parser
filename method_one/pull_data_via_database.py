@@ -10,24 +10,7 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
 
-DATA = {
-    "fixtureCountsRequest": {
-        "state": "Live",
-        "tagTypes": "Sport,Region,Tournament,Competition",
-        "extendedTags": "Sport,Region,Tournament,Competition",
-        "sortBy": "Tags",
-    },
-    "fixtureRequest": {
-        "fixtureTypes": "Standard",
-        "state": "preMatch",
-        "offerMapping": "MainMarkets",
-        "sortBy": "FixtureStage",
-        "excludeCompetitionIds": "",
-        "sportIds": "5",
-    },
-}
-
-response = make_data_request(URL, HEADERS, DATA)
+response = make_data_request(URL, HEADERS)
 response = response.json()
 
 conn = sqlite3.connect("tennis_data.db")
