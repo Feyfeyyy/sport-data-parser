@@ -1,6 +1,6 @@
 import json
 
-from helpers import construct_json, make_data_request
+from helpers.utility import construct_json, make_data_request
 
 URL = "https://sports.bwin.com/cds-api/bettingoffer/counts-fixtures?x-bwin-accessid=NTZiMjk3OGMtNjU5Mi00NjA5LWI2MWItZmU4MDRhN2QxZmEz&lang=en&country=GB&userCountry=GB"
 
